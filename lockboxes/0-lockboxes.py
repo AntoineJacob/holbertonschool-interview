@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 
+"""
+Problem:
+Task: Write a method that determines if all boxes can be openeed
+"""
 
 def canUnlockAll(boxes):
     """Determine whether allKeys for all boxes are accessible """
