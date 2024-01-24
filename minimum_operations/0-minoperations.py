@@ -5,6 +5,7 @@ Method that calculates the fewest number of operations needed
 
 
 def minOperations(n):
+    """def minOperations function"""
     if (n < 1):
         return 0
 
