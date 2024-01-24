@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Method for calcul the fewest number of operations needed
+Method that calculates the fewest number of operations needed
 """
 
 
