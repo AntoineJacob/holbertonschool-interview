@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for parse log"""
+"""Module for parse log """
 
 import sys
 import fileinput
