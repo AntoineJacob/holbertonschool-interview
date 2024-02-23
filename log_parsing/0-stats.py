@@ -39,3 +39,4 @@ print("File size: {}".format(file_size))
 for key in sorted(status_codes.keys()):
     if status_codes[key] > 0:
         print("{}: {}".format(key, status_codes[key]))
+ 
