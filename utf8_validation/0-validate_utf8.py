@@ -1,69 +1,36 @@
 #!/usr/bin/python3
-"""
-Function for utf8 validation
-"""
+"""Challenge UTF-8"""
 
 
 def validUTF8(data):
-    data_len = len(data)
-    binary_data = []
-    index = 0
+    """
+    Bit manipulation leetcode.com implementation
+    method that determines if a given data
+    set represents a valid UTF-8 encoding
+    Args:
+        data: data will be represented by a list
+              of integers
+    Return: True if data is a valid UTF-8 encoding,
+            else return False
+    """
 
-    for num in data:
-        binary_string = bin(num)
-        binary_data.append(binary_string[2:])
+    n_bytes = 0
 
-    for binary_num in binary_data:
-        if check_bit_too_large(binary_num) or check_size(binary_num):
-            return False
-        else:
-            if check_bit_small(binary_num):
+    m1 = 1 << 7
+    m2 = 1 << 6
+
+    for i in data:
+        m = 1 << 7
+        if n_bytes == 0:
+            while m & i:
+                n_bytes += 1
+                m = m >> 1
+            if n_bytes == 0:
                 continue
-            else:
-                count = check_after(binary_num)
-                rest = data_len - index
-                for x in binary_data:
-                    if x == binary_num:
-                        for z in range(count):
-                            z += 1
-                            if z > rest:
-                                break
-                            if binary_data[index + z][:2] == "10":
-                                continue
-                            else:
-                                return False
-                index += 1
-    return True
-
-
-def check_after(binary_num):
-    count = 0
-    for char in binary_num[1:4]:
-        if char == "1":
-            count += 1
+            if n_bytes == 1 or n_bytes > 4:
+                return False
         else:
-            break
-    return count
-
-
-def check_bit_too_large(binary_num):
-    count = 0
-    for char in binary_num:
-        count += 1
-    if count > 8:
-        return True
-    return False
-
-
-def check_bit_small(binary_num):
-    count = 0
-    for char in binary_num:
-        count += 1
-    if count < 8:
-        return True
-    return False
-
-
-def check_size(binary_num):
-    if binary_num[:5] == "11111":
-        return True
+            if not (i & m1 and not (i & m2)):
+                return False
+        n_bytes -= 1
+    return n_bytes == 0
