@@ -116,4 +116,3 @@ def count_words(subreddit, word_list):
     sort_des_words = sorted(sort_words, key=lambda tup: tup[1], reverse=True)
 
     print_words(sort_des_words, 0, len(sort_des_words), words_repeated)
-    
