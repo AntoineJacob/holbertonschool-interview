@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""
+0;10;1c"""
 Island perimeter
 """
 
@@ -53,7 +53,7 @@ def island_perimeter(grid):
     Returns:
         perimeter (int): the island perimeter
     """
-    # NOTE the grid is supposed to be rectangular
+    # The grid is supposed to be rectangular
     if len(grid) == 0:
         return 0
     height = len(grid)
